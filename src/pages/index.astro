@@ -1,16 +1,327 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import HeroSlideshow from '../components/HeroSlideshow.jsx';
 
+// Data pro reels s odkazy
+const reels = [
+  { image: '/ig-aquila-slowdown.jpg', alt: 'Aquila Reels', url: 'https://instagram.com/p/example1' },
+  { image: '/ig-doritos-reels.jpg', alt: 'Doritos Reels', url: 'https://instagram.com/p/example2' },
+  { image: '/ig-hanacka-reels.jpg', alt: 'Hanácká Reels', url: 'https://instagram.com/p/example3' },
+  { image: '/ig-nutribullet-reels.jpg', alt: 'NutriBullet Reels', url: 'https://instagram.com/p/example4' },
+];
+
+// Data pro hero slideshow
+const heroImages = [
+  '/ukazky_aquila_3.png',
+  '/ukazky_doritos_2.png',
+  '/ukazky_hanacka_1.png',
+  '/ukazky_nutribullet_1.png',
+  '/ukazky_aquila_2.png',
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="White Rabbit - Kreativita bez hranic">
+  
+  <!-- Navigation - Centrované menu -->
+  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-screen-xl px-6">
+    <div class="flex items-center justify-center gap-4 md:gap-6">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center flex-shrink-0">
+        <img src="/logo-whiterabbit-light.svg" alt="White Rabbit" class="h-8 w-auto drop-shadow-lg" />
+      </a>
+      
+      <!-- Odkazy jako tlačítka -->
+      <a href="#services" class="px-3 md:px-5 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-sm font-medium text-white whitespace-nowrap transition-all hover:bg-white hover:text-black hover:border-white">
+        Služby
+      </a>
+      <a href="#portfolio" class="px-3 md:px-5 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-sm font-medium text-white whitespace-nowrap transition-all hover:bg-white hover:text-black hover:border-white">
+        Práce
+      </a>
+      <a href="#about" class="px-3 md:px-5 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-sm font-medium text-white whitespace-nowrap transition-all hover:bg-white hover:text-black hover:border-white">
+        O nás
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section - Dvousloupcový -->
+  <section id="home" class="min-h-[80vh] flex items-center px-6 pt-32 pb-12 md:pt-40 md:pb-16 lg:pt-48">
+    <div class="max-w-7xl mx-auto w-full">
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        
+        <!-- Levý sloupec - Text -->
+        <div class="order-2 lg:order-1">
+          <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight text-white">
+            Kreativita a efektivita bez bull****
+          </h1>
+          
+          <p class="text-base md:text-lg text-gray-400 mb-8 max-w-md leading-relaxed">
+            Specializujeme se na sociální sítě, obsah a správu značek. Děláme realné výsledky — fixy, videa, UGC i full-service spolupráce.
+          </p>
+          
+          <div class="flex flex-row gap-3 md:gap-4">
+            <a href="#portfolio" class="px-4 md:px-6 py-3 bg-white text-black rounded-full text-sm md:text-base font-medium hover:bg-gray-100 transition whitespace-nowrap">
+              Ukázky práce
+            </a>
+            <a href="#contact" class="px-4 md:px-6 py-3 border border-white/20 rounded-full text-sm md:text-base font-medium hover:bg-white/5 transition whitespace-nowrap">
+              Spolupráce
+            </a>
+          </div>
+        </div>
+        
+        <!-- Pravý sloupec - Slideshow -->
+        <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+          <div class="max-w-sm md:max-w-md w-full h-[500px] md:h-[600px] shadow-2xl">
+            <HeroSlideshow images={heroImages} client:load />
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-12 md:py-16 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl mb-3 text-center">Co děláme</h2>
+      <p class="text-center text-gray-400 mb-10 max-w-2xl mx-auto text-sm md:text-base">
+        Strategii & konzultace • Obsah & produkci • Správu & reporting • Influencery & UGC • Performance & kampaně
+      </p>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        <!-- Strategie & konzultace -->
+        <div class="group p-6 rounded-2xl border border-white/10 hover:border-white/20 transition bg-white/5">
+          <h3 class="font-serif text-xl mb-3">Strategie & konzultace</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Pomůžeme vám nastavit správnou komunikační strategii, najít váš hlas a cílovku. Včetně workshopů a auditů.
+          </p>
+        </div>
+
+        <!-- Obsah & produkce -->
+        <div class="group p-6 rounded-2xl border border-white/10 hover:border-white/20 transition bg-white/5">
+          <h3 class="font-serif text-xl mb-3">Obsah & produkce</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Grafiky, videa, fotky, copy. Děláme kvalitní vizuál, který funguje. Rychle a efektivně.
+          </p>
+        </div>
+
+        <!-- Správa & reporting -->
+        <div class="group p-6 rounded-2xl border border-white/10 hover:border-white/20 transition bg-white/5">
+          <h3 class="font-serif text-xl mb-3">Správa & reporting</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Kompletní správa vašich kanálů včetně community managementu, publikování a měření výsledků.
+          </p>
+        </div>
+
+        <!-- Influenceři & UGC -->
+        <div class="group p-6 rounded-2xl border border-white/10 hover:border-white/20 transition bg-white/5">
+          <h3 class="font-serif text-xl mb-3">Influenceři & UGC</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Najdeme vhodné tvůrce, domluvíme spolupráci a postaráme se o autentický obsah značky.
+          </p>
+        </div>
+
+        <!-- Performance & kampaně -->
+        <div class="group p-6 rounded-2xl border border-white/10 hover:border-white/20 transition bg-white/5">
+          <h3 class="font-serif text-xl mb-3">Performance & kampaně</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Nastavíme a optimalizujeme placené kampaně. Organická i placená strategie ruku v ruce.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-12 md:py-16 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl mb-3 text-center">Ukázky práce</h2>
+      <p class="text-center text-gray-400 mb-10 text-sm md:text-base">
+        Díla, na která jsme hrdí
+      </p>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        
+        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10">
+          <img src="/ukazky_aquila_1.png" alt="Aquila" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+            <div>
+              <h3 class="font-serif text-base md:text-lg">Aquila - special making look</h3>
+              <p class="text-xs text-gray-300">Doritos brand aktivace</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10">
+          <img src="/ukazky_doritos_1.png" alt="Doritos" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+            <div>
+              <h3 class="font-serif text-base md:text-lg">Doritos - světelní video vizuál</h3>
+              <p class="text-xs text-gray-300">Kreativní kampaň</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10">
+          <img src="/ukazky_hanacka_1.png" alt="Hanácká" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+            <div>
+              <h3 class="font-serif text-base md:text-lg">NutriBullet - smoothie obsah</h3>
+              <p class="text-xs text-gray-300">Produkt fotografie</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10">
+          <img src="/ukazky_nutribullet_1.png" alt="NutriBullet" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+            <div>
+              <h3 class="font-serif text-base md:text-lg">NutriBullet - brand příběhomat</h3>
+              <p class="text-xs text-gray-300">Social content</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10">
+          <img src="/ukazky_promineral_1.png" alt="Promineral" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+            <div>
+              <h3 class="font-serif text-base md:text-lg">Hanácká - Pomlázka v pohádce</h3>
+              <p class="text-xs text-gray-300">Influencer kampaň</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10">
+          <img src="/ukazky_aelia.png" alt="Aelia" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+            <div>
+              <h3 class="font-serif text-base md:text-lg">Hanácká - Kolotoč v pohádce</h3>
+              <p class="text-xs text-gray-300">UGC content</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10">
+          <img src="/ukazky_aquila_2.png" alt="Aquila 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+            <div>
+              <h3 class="font-serif text-base md:text-lg">Aquila - social & food</h3>
+              <p class="text-xs text-gray-300">Správa značky</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10">
+          <img src="/ukazky_doritos_2.png" alt="Doritos 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+            <div>
+              <h3 class="font-serif text-base md:text-lg">Aquila - chili portrét</h3>
+              <p class="text-xs text-gray-300">Kreativní portréty</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Reels Section -->
+  <section class="py-12 md:py-16 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl mb-3 text-center">Reels na Instagramu</h2>
+      <p class="text-center text-gray-400 mb-10 text-sm md:text-base">
+        Krátká videa, která fungují
+      </p>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+        
+        {reels.map((reel) => (
+          <a 
+            href={reel.url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="group relative overflow-hidden rounded-xl aspect-[9/16] border border-white/10 hover:border-white/30 transition-all"
+          >
+            <img src={reel.image} alt={reel.alt} class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+            
+            <!-- Play button overlay - vždy viditelné -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center transition-all group-hover:scale-110 group-hover:bg-white/40">
+                <svg class="w-8 h-8 md:w-10 md:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+        ))}
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-12 md:py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl mb-6">Jak pracujeme</h2>
+      <p class="text-gray-400 leading-relaxed mb-8 text-sm md:text-base">
+        Bez omáček, bez zbytečných slov, bez složitých procesů.
+      </p>
+      
+      <ul class="text-left text-gray-400 space-y-3 max-w-2xl mx-auto text-sm md:text-base">
+        <li class="flex items-start gap-3">
+          <span class="text-white mt-1">•</span>
+          <span>Tvoříme efektivně a rychle.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-white mt-1">•</span>
+          <span>Víme, že důležitý může být všední den, ne jenom na kontroly.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-white mt-1">•</span>
+          <span>Na každý projekt se díváme jako na vlastní.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- O nás -->
+  <section class="py-12 md:py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl mb-6">O nás</h2>
+      <p class="text-gray-400 leading-relaxed text-lg md:text-xl">
+        Jsme White Rabbit. Digitální agentura, která spojuje kreativní produkci a smysl pro výsledek.
+      </p>
+      <p class="text-gray-400 leading-relaxed text-lg md:text-xl mt-4">
+        Navrhujeme prezentace, videa, obsah, který má hodnotu a přichází z doby 3-2-1 — co osvěžuje feedu.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer - Contact -->
+  <footer id="contact" class="py-12 md:py-16 px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-serif text-2xl md:text-3xl mb-4">Kontakt</h2>
+      <p class="text-gray-400 mb-8 text-sm md:text-base">Chceš oslovovat novým? Napiš nám.</p>
+      
+      <a href="mailto:info@whiterabbit.cz" class="font-serif text-3xl md:text-4xl lg:text-5xl hover:text-gray-300 transition inline-block mb-8">
+        info@whiterabbit.cz
+      </a>
+      
+      <div class="flex flex-col md:flex-row gap-4 md:gap-6 justify-center mb-8 mt-6">
+        <a href="https://instagram.com" target="_blank" class="text-gray-400 hover:text-white transition text-sm">
+          Instagram
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="text-gray-400 hover:text-white transition text-sm">
+          LinkedIn
+        </a>
+      </div>
+      
+      <p class="text-gray-600 text-sm">
+        © 2025 White Rabbit
+      </p>
+    </div>
+  </footer>
+
+</Layout>
