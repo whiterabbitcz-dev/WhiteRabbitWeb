@@ -2,6 +2,111 @@
   "heroTitle": "Kreativita a efektivita bez bull****",
   "heroSubtitle": "Specializujeme se na sociální sítě, obsah a správu značek. Děláme reálné výsledky — fixy, videa, UGC i full-service spolupráce.",
   "buttonWork": "Ukázky práce",
-  "buttonContact": "Spolupráce"
+  "buttonContact": "Spolupráce",
+  "services": [
+    {
+      "title": "Strategie & konzultace",
+      "description": "Pomůžeme vám nastavit správnou komunikační strategii, najít váš hlas a cílovku. Včetně workshopů a auditů."
+    },
+    {
+      "title": "Obsah & produkce",
+      "description": "Grafiky, videa, fotky, copy. Děláme kvalitní vizuál, který funguje. Rychle a efektivně."
+    },
+    {
+      "title": "Správa & reporting",
+      "description": "Kompletní správa vašich kanálů včetně community managementu, publikování a měření výsledků."
+    },
+    {
+      "title": "Influenceři & UGC",
+      "description": "Najdeme vhodné tvůrce, domluvíme spolupráci a postaráme se o autentický obsah značky."
+    },
+    {
+      "title": "Performance & kampaně",
+      "description": "Nastavíme a optimalizujeme placené kampaně. Organická i placená strategie ruku v ruce."
+    }
+  ],
+  "portfolio": [
+    {
+      "client": "Aquila",
+      "category": "Doritos brand aktivace",
+      "image": "/ukazky_aquila_1.png",
+      "size": "small"
+    },
+    {
+      "client": "Doritos",
+      "category": "Kreativní kampaň",
+      "image": "/ukazky_doritos_1.png",
+      "size": "small"
+    },
+    {
+      "client": "NutriBullet",
+      "category": "Produkt fotografie",
+      "image": "/ukazky_hanacka_1.png",
+      "size": "small"
+    },
+    {
+      "client": "NutriBullet",
+      "category": "Social content",
+      "image": "/ukazky_nutribullet_1.png",
+      "size": "small"
+    },
+    {
+      "client": "Hanácká",
+      "category": "Influencer kampaň",
+      "image": "/ukazky_promineral_1.png",
+      "size": "small"
+    },
+    {
+      "client": "Hanácká",
+      "category": "UGC content",
+      "image": "/ukazky_aelia.png",
+      "size": "small"
+    },
+    {
+      "client": "Aquila",
+      "category": "Správa značky",
+      "image": "/ukazky_aquila_2.png",
+      "size": "small"
+    },
+    {
+      "client": "Aquila",
+      "category": "Kreativní portréty",
+      "image": "/ukazky_doritos_2.png",
+      "size": "small"
+    }
+  ],
+  "reels": [
+    {
+      "title": "Aquila Slowdown",
+      "image": "/ig-aquila-slowdown.jpg",
+      "url": "https://instagram.com/p/example1"
+    },
+    {
+      "title": "Doritos Reels",
+      "image": "/ig-doritos-reels.jpg",
+      "url": "https://instagram.com/p/example2"
+    },
+    {
+      "title": "Hanácká Reels",
+      "image": "/ig-hanacka-reels.jpg",
+      "url": "https://instagram.com/p/example3"
+    },
+    {
+      "title": "NutriBullet Reels",
+      "image": "/ig-nutribullet-reels.jpg",
+      "url": "https://instagram.com/p/example4"
+    }
+  ],
+  "about": {
+    "title": "O nás",
+    "text": "Jsme White Rabbit. Digitální agentura, která spojuje kreativní produkci a smysl pro výsledek.\n\nNavrhujeme prezentace, videa, obsah, který má hodnotu a přichází z doby 3-2-1 — co osvěžuje feedu."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Chceš oslovovat novým? Napiš nám.",
+    "email": "info@whiterabbit.cz",
+    "instagramUrl": "https://instagram.com",
+    "linkedinUrl": "https://linkedin.com",
+    "footerText": "© 2025 White Rabbit"
+  }
 }
-

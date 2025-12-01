@@ -19,3 +19,45 @@ collections:
           - {label: "Podtitul (Perex)", name: "heroSubtitle", widget: "text"}
           - {label: "Tlačítko 1", name: "buttonWork", widget: "string"}
           - {label: "Tlačítko 2", name: "buttonContact", widget: "string"}
+          
+          - label: "Služby"
+            name: "services"
+            widget: "list"
+            fields:
+              - {label: "Název služby", name: "title", widget: "string"}
+              - {label: "Popis", name: "description", widget: "text"}
+          
+          - label: "Portfolio"
+            name: "portfolio"
+            widget: "list"
+            fields:
+              - {label: "Klient", name: "client", widget: "string"}
+              - {label: "Kategorie", name: "category", widget: "string"}
+              - {label: "Obrázek", name: "image", widget: "image"}
+              - {label: "Velikost", name: "size", widget: "select", options: ["small", "wide"], default: "small"}
+          
+          - label: "Reels"
+            name: "reels"
+            widget: "list"
+            fields:
+              - {label: "Název", name: "title", widget: "string"}
+              - {label: "Obrázek", name: "image", widget: "image"}
+              - {label: "Instagram URL", name: "url", widget: "string"}
+          
+          - label: "O nás"
+            name: "about"
+            widget: "object"
+            fields:
+              - {label: "Nadpis", name: "title", widget: "string"}
+              - {label: "Text", name: "text", widget: "markdown"}
+          
+          - label: "Kontakt"
+            name: "contact"
+            widget: "object"
+            fields:
+              - {label: "Nadpis", name: "title", widget: "string"}
+              - {label: "Podnadpis", name: "subtitle", widget: "string"}
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "Instagram URL", name: "instagramUrl", widget: "string"}
+              - {label: "LinkedIn URL", name: "linkedinUrl", widget: "string"}
+              - {label: "Patička", name: "footerText", widget: "string"}

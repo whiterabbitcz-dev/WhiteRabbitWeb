@@ -3,14 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import HeroSlideshow from '../components/HeroSlideshow.jsx';
 import homeData from '../data/home.json';
 
-// Data pro reels s odkazy
-const reels = [
-  { image: '/ig-aquila-slowdown.jpg', alt: 'Aquila Reels', url: 'https://instagram.com/p/example1' },
-  { image: '/ig-doritos-reels.jpg', alt: 'Doritos Reels', url: 'https://instagram.com/p/example2' },
-  { image: '/ig-hanacka-reels.jpg', alt: 'Hanácká Reels', url: 'https://instagram.com/p/example3' },
-  { image: '/ig-nutribullet-reels.jpg', alt: 'NutriBullet Reels', url: 'https://instagram.com/p/example4' },
-];
-
 // Data pro hero slideshow
 const heroImages = [
   '/ukazky_aquila_3.png',
@@ -90,45 +82,14 @@ const heroImages = [
       
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         
-        <!-- Strategie & konzultace -->
-        <div class="group p-6 rounded-2xl border border-white/10 hover:border-white/20 transition bg-white/5">
-          <h3 class="cms-editable font-serif text-xl mb-3">Strategie & konzultace</h3>
-          <p class="cms-editable text-gray-400 text-sm leading-relaxed">
-            Pomůžeme vám nastavit správnou komunikační strategii, najít váš hlas a cílovku. Včetně workshopů a auditů.
-          </p>
-        </div>
-
-        <!-- Obsah & produkce -->
-        <div class="group p-6 rounded-2xl border border-white/10 hover:border-white/20 transition bg-white/5">
-          <h3 class="cms-editable font-serif text-xl mb-3">Obsah & produkce</h3>
-          <p class="cms-editable text-gray-400 text-sm leading-relaxed">
-            Grafiky, videa, fotky, copy. Děláme kvalitní vizuál, který funguje. Rychle a efektivně.
-          </p>
-        </div>
-
-        <!-- Správa & reporting -->
-        <div class="group p-6 rounded-2xl border border-white/10 hover:border-white/20 transition bg-white/5">
-          <h3 class="cms-editable font-serif text-xl mb-3">Správa & reporting</h3>
-          <p class="cms-editable text-gray-400 text-sm leading-relaxed">
-            Kompletní správa vašich kanálů včetně community managementu, publikování a měření výsledků.
-          </p>
-        </div>
-
-        <!-- Influenceři & UGC -->
-        <div class="group p-6 rounded-2xl border border-white/10 hover:border-white/20 transition bg-white/5">
-          <h3 class="cms-editable font-serif text-xl mb-3">Influenceři & UGC</h3>
-          <p class="cms-editable text-gray-400 text-sm leading-relaxed">
-            Najdeme vhodné tvůrce, domluvíme spolupráci a postaráme se o autentický obsah značky.
-          </p>
-        </div>
-
-        <!-- Performance & kampaně -->
-        <div class="group p-6 rounded-2xl border border-white/10 hover:border-white/20 transition bg-white/5">
-          <h3 class="cms-editable font-serif text-xl mb-3">Performance & kampaně</h3>
-          <p class="cms-editable text-gray-400 text-sm leading-relaxed">
-            Nastavíme a optimalizujeme placené kampaně. Organická i placená strategie ruku v ruce.
-          </p>
-        </div>
+        {homeData.services.map((service) => (
+          <div class="group p-6 rounded-2xl border border-white/10 hover:border-white/20 transition bg-white/5">
+            <h3 class="cms-editable font-serif text-xl mb-3">{service.title}</h3>
+            <p class="cms-editable text-gray-400 text-sm leading-relaxed">
+              {service.description}
+            </p>
+          </div>
+        ))}
 
       </div>
     </div>
@@ -144,85 +105,17 @@ const heroImages = [
       
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         
-        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10">
-          <img src="/ukazky_aquila_1.png" alt="Aquila" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-            <div>
-              <h3 class="font-serif text-base md:text-lg">Aquila - special making look</h3>
-              <p class="text-xs text-gray-300">Doritos brand aktivace</p>
+        {homeData.portfolio.map((project) => (
+          <div class={`group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10 ${project.size === 'wide' ? 'md:col-span-2' : 'md:col-span-1'}`}>
+            <img src={project.image} alt={project.client} class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+              <div>
+                <h3 class="font-serif text-base md:text-lg">{project.client}</h3>
+                <p class="text-xs text-gray-300">{project.category}</p>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10">
-          <img src="/ukazky_doritos_1.png" alt="Doritos" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-            <div>
-              <h3 class="font-serif text-base md:text-lg">Doritos - světelní video vizuál</h3>
-              <p class="text-xs text-gray-300">Kreativní kampaň</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10">
-          <img src="/ukazky_hanacka_1.png" alt="Hanácká" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-            <div>
-              <h3 class="font-serif text-base md:text-lg">NutriBullet - smoothie obsah</h3>
-              <p class="text-xs text-gray-300">Produkt fotografie</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10">
-          <img src="/ukazky_nutribullet_1.png" alt="NutriBullet" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-            <div>
-              <h3 class="font-serif text-base md:text-lg">NutriBullet - brand příběhomat</h3>
-              <p class="text-xs text-gray-300">Social content</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10">
-          <img src="/ukazky_promineral_1.png" alt="Promineral" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-            <div>
-              <h3 class="font-serif text-base md:text-lg">Hanácká - Pomlázka v pohádce</h3>
-              <p class="text-xs text-gray-300">Influencer kampaň</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10">
-          <img src="/ukazky_aelia.png" alt="Aelia" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-            <div>
-              <h3 class="font-serif text-base md:text-lg">Hanácká - Kolotoč v pohádce</h3>
-              <p class="text-xs text-gray-300">UGC content</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10">
-          <img src="/ukazky_aquila_2.png" alt="Aquila 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-            <div>
-              <h3 class="font-serif text-base md:text-lg">Aquila - social & food</h3>
-              <p class="text-xs text-gray-300">Správa značky</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] border border-white/10">
-          <img src="/ukazky_doritos_2.png" alt="Doritos 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-            <div>
-              <h3 class="font-serif text-base md:text-lg">Aquila - chili portrét</h3>
-              <p class="text-xs text-gray-300">Kreativní portréty</p>
-            </div>
-          </div>
-        </div>
+        ))}
         
       </div>
     </div>
@@ -238,14 +131,14 @@ const heroImages = [
       
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
         
-        {reels.map((reel) => (
+        {homeData.reels.map((reel) => (
           <a 
             href={reel.url} 
             target="_blank" 
             rel="noopener noreferrer"
             class="group relative overflow-hidden rounded-xl aspect-[9/16] border border-white/10 hover:border-white/30 transition-all"
           >
-            <img src={reel.image} alt={reel.alt} class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+            <img src={reel.image} alt={reel.title} class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
             
             <!-- Play button overlay - vždy viditelné -->
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -290,37 +183,36 @@ const heroImages = [
   <!-- O nás -->
   <section class="py-12 md:py-16 px-6">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="cms-editable font-serif text-3xl md:text-4xl lg:text-5xl mb-6">O nás</h2>
-      <p class="cms-editable text-gray-400 leading-relaxed text-lg md:text-xl">
-        Jsme White Rabbit. Digitální agentura, která spojuje kreativní produkci a smysl pro výsledek.
-      </p>
-      <p class="cms-editable text-gray-400 leading-relaxed text-lg md:text-xl mt-4">
-        Navrhujeme prezentace, videa, obsah, který má hodnotu a přichází z doby 3-2-1 — co osvěžuje feedu.
-      </p>
+      <h2 class="cms-editable font-serif text-3xl md:text-4xl lg:text-5xl mb-6">{homeData.about.title}</h2>
+      {homeData.about.text.split('\n\n').map((paragraph) => (
+        <p class="cms-editable text-gray-400 leading-relaxed text-lg md:text-xl mt-4 first:mt-0">
+          {paragraph}
+        </p>
+      ))}
     </div>
   </section>
 
   <!-- Footer - Contact -->
   <footer id="contact" class="py-12 md:py-16 px-6 text-center">
     <div class="max-w-4xl mx-auto">
-      <h2 class="cms-editable font-serif text-2xl md:text-3xl mb-4">Kontakt</h2>
-      <p class="cms-editable text-gray-400 mb-8 text-sm md:text-base">Chceš oslovovat novým? Napiš nám.</p>
+      <h2 class="cms-editable font-serif text-2xl md:text-3xl mb-4">{homeData.contact.title}</h2>
+      <p class="cms-editable text-gray-400 mb-8 text-sm md:text-base">{homeData.contact.subtitle}</p>
       
-      <a href="mailto:info@whiterabbit.cz" class="font-serif text-3xl md:text-4xl lg:text-5xl hover:text-gray-300 transition inline-block mb-8">
-        info@whiterabbit.cz
+      <a href={`mailto:${homeData.contact.email}`} class="font-serif text-3xl md:text-4xl lg:text-5xl hover:text-gray-300 transition inline-block mb-8">
+        {homeData.contact.email}
       </a>
       
       <div class="flex flex-col md:flex-row gap-4 md:gap-6 justify-center mb-8 mt-6">
-        <a href="https://instagram.com" target="_blank" class="text-gray-400 hover:text-white transition text-sm">
+        <a href={homeData.contact.instagramUrl} target="_blank" class="text-gray-400 hover:text-white transition text-sm">
           Instagram
         </a>
-        <a href="https://linkedin.com" target="_blank" class="text-gray-400 hover:text-white transition text-sm">
+        <a href={homeData.contact.linkedinUrl} target="_blank" class="text-gray-400 hover:text-white transition text-sm">
           LinkedIn
         </a>
       </div>
       
       <p class="text-gray-600 text-sm">
-        © 2025 White Rabbit
+        {homeData.contact.footerText}
       </p>
     </div>
   </footer>
