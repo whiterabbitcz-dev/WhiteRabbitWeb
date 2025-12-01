@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUGHNASAD 2026 | Mezinárodní festival keltské kultury</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'parchment': '#F2EFE9',
+                        'ink': '#1A1A1A',
+                        'blood': '#8B0000',
+                        'gold': '#EBC86E',
+                        'dark-wood': '#1A1512',
+                    },
+                    fontFamily: {
+                        'heading': ['Crimson Pro', 'serif'],
+                        'body': ['Lato', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Global Styles */
+        body {
+            background-color: #F2EFE9;
+            font-family: 'Lato', sans-serif;
+            position: relative;
+        }
+        
+        /* Paper Texture Overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+            mix-blend-mode: multiply;
+        }
+        
+        /* Reset z-index for content */
+        body > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Heading Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        /* Comic Panel Border (Slightly Imperfect) */
+        .comic-panel {
+            border: 2px solid #1A1A1A;
+            box-shadow: 4px 4px 0px #1A1A1A;
+            background: #F2EFE9;
+            position: relative;
+        }
+        
+        .comic-panel::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 2px solid #1A1A1A;
+            opacity: 0.3;
+            transform: rotate(0.2deg);
+            pointer-events: none;
+        }
+        
+        /* Hard Shadow Button */
+        .btn-comic {
+            border: 2px solid #1A1A1A;
+            box-shadow: 4px 4px 0px #1A1A1A;
+            transition: all 0.1s ease;
+            border-radius: 0;
+        }
+        
+        .btn-comic:hover {
+            box-shadow: 2px 2px 0px #1A1A1A;
+            transform: translate(2px, 2px);
+        }
+        
+        .btn-comic:active {
+            box-shadow: 0px 0px 0px #1A1A1A;
+            transform: translate(4px, 4px);
+        }
+        
+        /* Gold Highlight Effect */
+        .gold-highlight {
+            background: linear-gradient(180deg, transparent 60%, #EBC86E 60%);
+            display: inline;
+            padding: 0 4px;
+        }
+        
+        /* Medallion Style */
+        .medallion {
+            border: 3px solid #1A1A1A;
+            border-radius: 50%;
+            box-shadow: 0 0 0 6px #EBC86E, 0 0 0 8px #1A1A1A, 6px 6px 0px #1A1A1A;
+            overflow: hidden;
+            background: #1A1A1A;
+        }
+        
+        /* Stats Card */
+        .stats-card {
+            border: 3px solid #1A1A1A;
+            box-shadow: 6px 6px 0px #1A1A1A;
+            background: white;
+            transform: rotate(-0.5deg);
+            transition: transform 0.2s ease;
+        }
+        
+        .stats-card:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+        
+        /* Imperfect Line Decorations */
+        .wavy-border-top {
+            position: relative;
+        }
+        
+        .wavy-border-top::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #1A1A1A;
+            clip-path: polygon(
+                0% 0%, 2% 100%, 4% 0%, 6% 100%, 8% 0%, 10% 100%, 
+                12% 0%, 14% 100%, 16% 0%, 18% 100%, 20% 0%, 22% 100%,
+                24% 0%, 26% 100%, 28% 0%, 30% 100%, 32% 0%, 34% 100%,
+                36% 0%, 38% 100%, 40% 0%, 42% 100%, 44% 0%, 46% 100%,
+                48% 0%, 50% 100%, 52% 0%, 54% 100%, 56% 0%, 58% 100%,
+                60% 0%, 62% 100%, 64% 0%, 66% 100%, 68% 0%, 70% 100%,
+                72% 0%, 74% 100%, 76% 0%, 78% 100%, 80% 0%, 82% 100%,
+                84% 0%, 86% 100%, 88% 0%, 90% 100%, 92% 0%, 94% 100%,
+                96% 0%, 98% 100%, 100% 0%
+            );
+        }
+        
+        /* Sticky Header Shadow */
+        .sticky-header {
+            box-shadow: 0 4px 0px #1A1A1A;
+        }
+        
+        /* Hero Text Shadow */
+        .hero-title {
+            text-shadow: 
+                4px 4px 0px #1A1A1A,
+                8px 8px 0px rgba(139, 0, 0, 0.3);
+        }
+        
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Responsive Image Frame */
+        .image-frame {
+            border: 3px solid #1A1A1A;
+            box-shadow: 4px 4px 0px #1A1A1A;
+            background: #1A1A1A;
+            padding: 8px;
+        }
+        
+        /* Team Card Character Style */
+        .character-card {
+            border: 2px solid #1A1A1A;
+            background: white;
+            box-shadow: 6px 6px 0px #1A1A1A;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .character-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 40px 40px 0;
+            border-color: transparent #EBC86E transparent transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- STICKY HEADER -->
+    <header class="sticky top-0 z-50 bg-dark-wood text-white sticky-header">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="text-2xl md:text-3xl font-heading text-gold tracking-tight">
+                LUGHNASAD
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#o-nas" class="font-body hover:text-gold transition-colors">O nás</a>
+                <a href="#program" class="font-body hover:text-gold transition-colors">Program</a>
+                <a href="#tym" class="font-body hover:text-gold transition-colors">Tým</a>
+            </nav>
+            
+            <!-- CTA Button -->
+            <a href="#vstupenky" class="btn-comic bg-blood text-white px-6 py-2 font-heading text-sm md:text-base">
+                VSTUPENKY
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden text-gold text-2xl" onclick="toggleMobileMenu()">
+                ☰
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-ink border-t-2 border-gold">
+            <nav class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#o-nas" class="font-body hover:text-gold transition-colors">O nás</a>
+                <a href="#program" class="font-body hover:text-gold transition-colors">Program</a>
+                <a href="#tym" class="font-body hover:text-gold transition-colors">Tým</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-ink via-blood/20 to-parchment">
+            <!-- Placeholder for hero-goddess.png -->
+            <div class="absolute inset-0 opacity-30 bg-center bg-cover" 
+                 style="background-image: url('./images/hero-goddess.png'), linear-gradient(45deg, #1A1A1A 25%, transparent 25%, transparent 75%, #1A1A1A 75%);">
+            </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="relative z-10 text-center px-4">
+            <!-- Main Title -->
+            <h1 class="hero-title text-6xl md:text-9xl font-heading text-blood mb-6">
+                VAE VICTIS
+            </h1>
+            
+            <!-- Subtitle Badge -->
+            <div class="inline-block comic-panel bg-gold px-8 py-4 mb-8">
+                <p class="text-ink font-heading text-lg md:text-2xl">
+                    Mezinárodní festival keltské kultury 2026
+                </p>
+            </div>
+            
+            <!-- Date & Location -->
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-white text-xl md:text-2xl font-body mb-8">
+                <div class="bg-ink/80 px-6 py-3 border-2 border-gold">
+                    📅 31. července - 2. srpna 2026
+                </div>
+                <div class="bg-ink/80 px-6 py-3 border-2 border-gold">
+                    📍 Nasavrky, Česká republika
+                </div>
+            </div>
+            
+            <!-- CTA -->
+            <a href="#o-nas" class="btn-comic inline-block bg-blood text-white px-12 py-4 font-heading text-xl">
+                VSTOUPIT DO PŘÍBĚHU
+            </a>
+        </div>
+        
+        <!-- Decorative Bottom Border -->
+        <div class="absolute bottom-0 left-0 right-0 h-2 bg-ink"></div>
+    </section>
+
+    <!-- ABOUT SECTION (Comic Panel) -->
+    <section id="o-nas" class="py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="comic-panel max-w-6xl mx-auto p-8 md:p-12 bg-white">
+                <!-- Section Title -->
+                <h2 class="text-4xl md:text-6xl font-heading text-ink mb-8 text-center">
+                    O FESTIVALU
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <!-- Text Content -->
+                    <div class="space-y-6 text-ink font-body text-lg leading-relaxed">
+                        <p class="text-2xl font-heading text-blood">
+                            Poutníku!
+                        </p>
+                        
+                        <p>
+                            Nasaj atmosféru z naší oslavy <span class="gold-highlight font-bold">svátku úrody</span>, 
+                            kde se prolíná minulost s přítomností. Lughnasad je víc než festival – 
+                            je to <span class="gold-highlight font-bold">živá kronika</span> keltské kultury.
+                        </p>
+                        
+                        <p>
+                            Přidej se k nám na <span class="gold-highlight font-bold">třídenní pouť</span> plnou 
+                            starověkých rituálů, řemesel, hudby a příběhů legend. 
+                            Staň se součástí <span class="gold-highlight font-bold">kmene</span>, který čítá tisíce duší.
+                        </p>
+                        
+                        <blockquote class="border-l-4 border-blood pl-6 italic text-xl">
+                            "Chtěli jsme vytvořit dílo, které osloví mladou generaci v moderním formátu 21. století."
+                            <footer class="text-sm mt-2 text-blood font-bold">
+                                — Petr Liška, ředitel festivalu
+                            </footer>
+                        </blockquote>
+                    </div>
+                    
+                    <!-- Image/Video Placeholder -->
+                    <div class="image-frame">
+                        <div class="aspect-[4/3] bg-parchment flex items-center justify-center">
+                            <!-- Placeholder for video or image -->
+                            <div class="text-center">
+                                <svg class="w-24 h-24 mx-auto mb-4 text-ink opacity-50" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
+                                </svg>
+                                <p class="text-ink font-body text-sm">Video z festivalu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION (Grid) -->
+    <section class="py-16 md:py-24 wavy-border-top">
+        <div class="container mx-auto px-4">
+            <!-- Section Title -->
+            <h2 class="text-4xl md:text-6xl font-heading text-ink mb-12 text-center">
+                LUGHNASAD V ČÍSLECH
+            </h2>
+            
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
+                <!-- Stat Card 1 -->
+                <div class="stats-card p-6 text-center">
+                    <div class="text-5xl md:text-6xl font-heading text-blood mb-2">
+                        2594
+                    </div>
+                    <div class="text-ink font-body text-sm md:text-base uppercase tracking-wide">
+                        Návštěvníků
+                    </div>
+                    <div class="mt-4 text-4xl">
+                        🛡️
+                    </div>
+                </div>
+                
+                <!-- Stat Card 2 -->
+                <div class="stats-card p-6 text-center">
+                    <div class="text-5xl md:text-6xl font-heading text-blood mb-2">
+                        269
+                    </div>
+                    <div class="text-ink font-body text-sm md:text-base uppercase tracking-wide">
+                        Účinkujících
+                    </div>
+                    <div class="mt-4 text-4xl">
+                        ⚔️
+                    </div>
+                </div>
+                
+                <!-- Stat Card 3 -->
+                <div class="stats-card p-6 text-center">
+                    <div class="text-5xl md:text-6xl font-heading text-blood mb-2">
+                        59
+                    </div>
+                    <div class="text-ink font-body text-sm md:text-base uppercase tracking-wide">
+                        Obyvatel<br>tábora
+                    </div>
+                    <div class="mt-4 text-4xl">
+                        🏕️
+                    </div>
+                </div>
+                
+                <!-- Stat Card 4 -->
+                <div class="stats-card p-6 text-center">
+                    <div class="text-5xl md:text-6xl font-heading text-blood mb-2">
+                        22
+                    </div>
+                    <div class="text-ink font-body text-sm md:text-base uppercase tracking-wide">
+                        Workshopů
+                    </div>
+                    <div class="mt-4 text-4xl">
+                        🔨
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM SECTION -->
+    <section id="program" class="py-16 md:py-24 bg-ink text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-6xl font-heading text-gold mb-12 text-center">
+                PROGRAM FESTIVALU
+            </h2>
+            
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- Day 1 -->
+                <div class="comic-panel bg-white text-ink p-6">
+                    <h3 class="text-2xl md:text-3xl font-heading text-blood mb-4">
+                        PÁTEK 31. 7. 2026
+                    </h3>
+                    <ul class="space-y-3 font-body">
+                        <li class="flex items-start">
+                            <span class="text-gold font-bold mr-4 min-w-[80px]">14:00</span>
+                            <span>Otevření brány — registrace příchozích</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold font-bold mr-4 min-w-[80px]">16:00</span>
+                            <span>Slavnostní zahájení — rituál k Lughu</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold font-bold mr-4 min-w-[80px]">18:00</span>
+                            <span>Bojové ukázky — kmen Bójů</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold font-bold mr-4 min-w-[80px]">21:00</span>
+                            <span>Ohňová show — Druidova Družina</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Day 2 -->
+                <div class="comic-panel bg-white text-ink p-6">
+                    <h3 class="text-2xl md:text-3xl font-heading text-blood mb-4">
+                        SOBOTA 1. 8. 2026
+                    </h3>
+                    <ul class="space-y-3 font-body">
+                        <li class="flex items-start">
+                            <span class="text-gold font-bold mr-4 min-w-[80px]">10:00</span>
+                            <span>Workshopy řemesel — kovářství, hrnčířství, tkaní</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold font-bold mr-4 min-w-[80px]">14:00</span>
+                            <span>Turnaj Brothers at Arms</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold font-bold mr-4 min-w-[80px]">16:00</span>
+                            <span>Keltská hudba — Daoine Ceilte</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold font-bold mr-4 min-w-[80px]">20:00</span>
+                            <span>Projekce komiksu BIATEC — první prezentace</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Day 3 -->
+                <div class="comic-panel bg-white text-ink p-6">
+                    <h3 class="text-2xl md:text-3xl font-heading text-blood mb-4">
+                        NEDĚLE 2. 8. 2026
+                    </h3>
+                    <ul class="space-y-3 font-body">
+                        <li class="flex items-start">
+                            <span class="text-gold font-bold mr-4 min-w-[80px]">11:00</span>
+                            <span>Ranní rituál — poděkování Matce Zemi</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold font-bold mr-4 min-w-[80px]">13:00</span>
+                            <span>Dětský program — legendy o Biatecovi</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold font-bold mr-4 min-w-[80px]">15:00</span>
+                            <span>Závěrečná bitva — Germáni vs. Keltové</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold font-bold mr-4 min-w-[80px]">18:00</span>
+                            <span>Slavnostní ukončení festivalu</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION (Medallions) -->
+    <section id="tym" class="py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-6xl font-heading text-ink mb-4 text-center">
+                KMENOVÍ NÁČELNÍCI
+            </h2>
+            <p class="text-center text-ink/70 font-body mb-12 text-lg">
+                Legendární postavy, které vedou naši pouť
+            </p>
+            
+            <!-- Team Grid -->
+            <div class="max-w-5xl mx-auto space-y-8">
+                <!-- Character 1: BIATEC -->
+                <div class="character-card p-6 md:p-8">
+                    <div class="grid md:grid-cols-[200px_1fr] gap-6 items-start">
+                        <!-- Portrait -->
+                        <div class="mx-auto md:mx-0">
+                            <div class="medallion w-40 h-40 md:w-48 md:h-48">
+                                <div class="w-full h-full bg-gradient-to-br from-gold via-parchment to-ink opacity-40"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Info -->
+                        <div>
+                            <h3 class="text-3xl md:text-4xl font-heading mb-2">
+                                <span class="gold-highlight">BIATEC</span>
+                            </h3>
+                            <p class="text-blood font-body italic mb-4">
+                                Bojovník a náčelník kmene Bójů. Cti dohody a blaho kmene je na místě vše.
+                            </p>
+                            <div class="text-ink/80 font-body leading-relaxed">
+                                <p class="mb-3">
+                                    <strong class="text-blood">Historie:</strong> Jméno Biatec známe z nápisů na bójských mincích. Velká jeho váha i sláva náčelníka vyšše byl tzv. vergobretos. Někdy je zmiňován byl i Vercingetorix, vůdce galského povstání...
+                                </p>
+                                <p class="text-sm text-ink/60">
+                                    Objevte příběh Biateca v našem komiksu, kde historie ožívá!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Character 2: GAIUS QUINTUS CAEPIO -->
+                <div class="character-card p-6 md:p-8">
+                    <div class="grid md:grid-cols-[200px_1fr] gap-6 items-start">
+                        <div class="mx-auto md:mx-0">
+                            <div class="medallion w-40 h-40 md:w-48 md:h-48">
+                                <div class="w-full h-full bg-gradient-to-br from-blood via-ink to-gold opacity-40"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl md:text-4xl font-heading mb-2">
+                                <span class="gold-highlight">GAIUS QUINTUS CAEPIO</span>
+                            </h3>
+                            <p class="text-blood font-body italic mb-4">
+                                Římský vojevůdce. Přísný, disciplinovaný, strategický myslitel.
+                            </p>
+                            <div class="text-ink/80 font-body leading-relaxed">
+                                <p>
+                                    <strong class="text-blood">Historie:</strong> Důstojník předválené římské republiky, jeden z mužců. Velitel legie rozmístěné v římském městě Noricum. Keltští Bójové pro něj představovali hrozbu...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Character 3: GODA MARCOMARUS -->
+                <div class="character-card p-6 md:p-8">
+                    <div class="grid md:grid-cols-[200px_1fr] gap-6 items-start">
+                        <div class="mx-auto md:mx-0">
+                            <div class="medallion w-40 h-40 md:w-48 md:h-48">
+                                <div class="w-full h-full bg-gradient-to-br from-ink via-blood to-parchment opacity-40"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl md:text-4xl font-heading mb-2">
+                                <span class="gold-highlight">GODA MARCOMARUS</span>
+                            </h3>
+                            <p class="text-blood font-body italic mb-4">
+                                Germánský plukovník. Krutý, nelítostný, strategický génius.
+                            </p>
+                            <div class="text-ink/80 font-body leading-relaxed">
+                                <p>
+                                    <strong class="text-blood">Historie:</strong> Jeden z vůdců skupiny Svébů. Horké markommanské plemeno. Germánského největší vůdce — Ariovist...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Character 4: VIRIDOMAR -->
+                <div class="character-card p-6 md:p-8">
+                    <div class="grid md:grid-cols-[200px_1fr] gap-6 items-start">
+                        <div class="mx-auto md:mx-0">
+                            <div class="medallion w-40 h-40 md:w-48 md:h-48">
+                                <div class="w-full h-full bg-gradient-to-br from-parchment via-gold to-ink opacity-40"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl md:text-4xl font-heading mb-2">
+                                <span class="gold-highlight">VIRIDOMAR</span>
+                            </h3>
+                            <p class="text-blood font-body italic mb-4">
+                                Zrádce, intriky a lstivé plány. Ambiciózní, úmí se obrátit dokola.
+                            </p>
+                            <div class="text-ink/80 font-body leading-relaxed">
+                                <p>
+                                    <strong class="text-blood">Historie:</strong> Další Viridomaros je zmíněn v závěru Gal Války...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TICKETS SECTION -->
+    <section id="vstupenky" class="py-16 md:py-24 bg-blood text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-6xl font-heading text-gold mb-6">
+                VSTUP DO KRONIKY
+            </h2>
+            <p class="text-xl md:text-2xl font-body mb-12 max-w-3xl mx-auto">
+                Staň se součástí legendy. Vstupenky na Lughnasad 2026 budou v prodeji od ledna 2026.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+                <!-- Ticket Option 1 -->
+                <div class="comic-panel bg-white text-ink p-8">
+                    <div class="text-4xl mb-4">🎫</div>
+                    <h3 class="text-2xl font-heading text-blood mb-4">JEDNODENÍ</h3>
+                    <div class="text-5xl font-heading text-ink mb-4">450 Kč</div>
+                    <ul class="text-left space-y-2 font-body text-sm">
+                        <li>✓ Vstup na festival</li>
+                        <li>✓ Všechny programy</li>
+                        <li>✓ Workshopy (kapacita)</li>
+                    </ul>
+                </div>
+                
+                <!-- Ticket Option 2 -->
+                <div class="comic-panel bg-gold text-ink p-8 transform scale-105">
+                    <div class="text-4xl mb-4">👑</div>
+                    <h3 class="text-2xl font-heading text-blood mb-4">VÍKENDOVÁ</h3>
+                    <div class="text-5xl font-heading text-ink mb-4">990 Kč</div>
+                    <ul class="text-left space-y-2 font-body text-sm">
+                        <li>✓ Vstup na celý festival</li>
+                        <li>✓ Všechny programy</li>
+                        <li>✓ Workshopy (kapacita)</li>
+                        <li>✓ Oficiální tričko</li>
+                        <li>✓ Komiks BIATEC</li>
+                    </ul>
+                </div>
+                
+                <!-- Ticket Option 3 -->
+                <div class="comic-panel bg-white text-ink p-8">
+                    <div class="text-4xl mb-4">⚔️</div>
+                    <h3 class="text-2xl font-heading text-blood mb-4">DĚTSKÁ</h3>
+                    <div class="text-5xl font-heading text-ink mb-4">250 Kč</div>
+                    <ul class="text-left space-y-2 font-body text-sm">
+                        <li>✓ Děti 6-15 let</li>
+                        <li>✓ Vstup na festival</li>
+                        <li>✓ Dětský program</li>
+                        <li>✓ Do 6 let zdarma</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <button class="btn-comic bg-gold text-ink px-12 py-4 font-heading text-xl">
+                REZERVOVAT MÍSTO
+            </button>
+            
+            <p class="text-sm mt-6 text-white/70">
+                Informace o prodeji vstupenek budou zveřejněny v lednu 2026
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark-wood text-white py-12 border-t-4 border-gold">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <!-- About -->
+                <div>
+                    <h4 class="font-heading text-gold text-xl mb-4">O FESTIVALU</h4>
+                    <p class="font-body text-sm text-white/80">
+                        Lughnasad je mezinárodní festival keltské kultury, který se koná každoročně v Nasavrkách. 
+                        Přinášíme autentický zážitek spojený s historií, řemesly a tradicemi.
+                    </p>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-heading text-gold text-xl mb-4">KONTAKT</h4>
+                    <ul class="font-body text-sm text-white/80 space-y-2">
+                        <li>📧 info@lughnasad.cz</li>
+                        <li>📱 +420 123 456 789</li>
+                        <li>📍 Nasavrky, Česká republika</li>
+                    </ul>
+                </div>
+                
+                <!-- Social -->
+                <div>
+                    <h4 class="font-heading text-gold text-xl mb-4">SLEDUJTE NÁS</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="btn-comic bg-gold text-ink w-12 h-12 flex items-center justify-center text-xl">
+                            f
+                        </a>
+                        <a href="#" class="btn-comic bg-gold text-ink w-12 h-12 flex items-center justify-center text-xl">
+                            📷
+                        </a>
+                        <a href="#" class="btn-comic bg-gold text-ink w-12 h-12 flex items-center justify-center text-xl">
+                            ▶
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom -->
+            <div class="border-t border-gold/30 pt-6 text-center">
+                <p class="font-body text-sm text-white/60">
+                    © 2026 Lughnasad. Všechna práva vyhrazena. | 
+                    Design inspirovaný komiksem BIATEC
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('section');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+
+</body>
+</html>
