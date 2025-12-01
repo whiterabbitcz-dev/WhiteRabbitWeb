@@ -8,5 +8,18 @@
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  
+  <script>
+    // Zaregistrujeme vlastní styly pro náhledové okno (iframe)
+    CMS.registerPreviewStyle(`
+      img {
+        max-width: 100%;
+        max-height: 300px; /* Omezení výšky, aby to nebylo přes celou obrazovku */
+        object-fit: contain; /* Zachování poměru stran */
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+    `, { raw: true });
+  </script>
 </body>
 </html>
