@@ -8,12 +8,14 @@ public_folder: "/images"
 locale: "cs"
 
 collections:
-  - name: "content"
-    label: "Obsah Webu"
+  - name: "pages"
+    label: "Stránky"
     files:
       - name: "home"
         label: "Domovská stránka"
-        file: "src/pages/index.astro"
+        file: "src/data/home.json"
         fields:
-          - {label: "Hlavní nadpis (Hero)", name: "heroTitle", widget: "string", default: "Kreativita a efektivita bez bull****"}
-          - {label: "Podtitul", name: "heroSubtitle", widget: "text", default: "Specializujeme se na sociální sítě..."}
+          - {label: "Hlavní Nadpis", name: "heroTitle", widget: "string"}
+          - {label: "Podtitul (Perex)", name: "heroSubtitle", widget: "text"}
+          - {label: "Tlačítko 1", name: "buttonWork", widget: "string"}
+          - {label: "Tlačítko 2", name: "buttonContact", widget: "string"}

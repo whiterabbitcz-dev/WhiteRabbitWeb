@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroSlideshow from '../components/HeroSlideshow.jsx';
+import homeData from '../data/home.json';
 
 // Data pro reels s odkazy
 const reels = [
@@ -51,19 +52,19 @@ const heroImages = [
         <!-- Levý sloupec - Text -->
         <div class="order-2 lg:order-1">
           <h1 class="cms-editable font-serif text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight text-white">
-            Kreativita a efektivita bez bull****
+            {homeData.heroTitle}
           </h1>
           
           <p class="cms-editable text-base md:text-lg text-gray-400 mb-8 max-w-md leading-relaxed">
-            Specializujeme se na sociální sítě, obsah a správu značek. Děláme realné výsledky — fixy, videa, UGC i full-service spolupráce.
+            {homeData.heroSubtitle}
           </p>
           
           <div class="flex flex-row gap-3 md:gap-4">
             <a href="#portfolio" class="px-4 md:px-6 py-3 bg-white text-black rounded-full text-sm md:text-base font-medium hover:bg-gray-100 transition whitespace-nowrap">
-              Ukázky práce
+              {homeData.buttonWork}
             </a>
             <a href="#contact" class="px-4 md:px-6 py-3 border border-white/20 rounded-full text-sm md:text-base font-medium hover:bg-white/5 transition whitespace-nowrap">
-              Spolupráce
+              {homeData.buttonContact}
             </a>
           </div>
         </div>

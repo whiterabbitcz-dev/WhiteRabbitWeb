@@ -54,12 +54,9 @@ const { title, description = "White Rabbit - Kreativita a efektivita bez bull***
       }
 
       // 3. Přesměrování po přihlášení
-      netlifyIdentity.on('init', user => {
-        if (!user) {
-          netlifyIdentity.on('login', () => {
-            document.location.href = '/admin/';
-          });
-        }
+      // IHNED po login eventu přesměruj na admin (lepší UX)
+      netlifyIdentity.on('login', () => {
+        document.location.href = '/admin/';
       });
     </script>
   </body>
