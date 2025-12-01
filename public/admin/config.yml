@@ -5,13 +5,15 @@ backend:
 media_folder: "public/images"
 public_folder: "/images"
 
+locale: "cs"
+
 collections:
-  - name: "pages"
-    label: "Stránky"
+  - name: "content"
+    label: "Obsah Webu"
     files:
       - name: "home"
-        label: "Úvodní stránka"
+        label: "Domovská stránka"
         file: "src/pages/index.astro"
         fields:
-          - { label: "Nadpis", name: "heroTitle", widget: "string" }
-          - { label: "Text", name: "heroText", widget: "text" }
+          - {label: "Hlavní nadpis (Hero)", name: "heroTitle", widget: "string", default: "Kreativita a efektivita bez bull****"}
+          - {label: "Podtitul", name: "heroSubtitle", widget: "text", default: "Specializujeme se na sociální sítě..."}

@@ -22,9 +22,6 @@ const { title, description = "White Rabbit - Kreativita a efektivita bez bull***
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
     
-    <!-- Netlify Identity Widget -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    
     <title>{title}</title>
   </head>
   <body class="bg-dark text-white font-sans">
@@ -42,16 +39,28 @@ const { title, description = "White Rabbit - Kreativita a efektivita bez bull***
     
     <slot />
     
-    <script is:inline>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
+    <script>
+      import netlifyIdentity from 'netlify-identity-widget';
+
+      window.netlifyIdentity = netlifyIdentity;
+      
+      // 1. Inicializace widgetu
+      netlifyIdentity.init();
+
+      // 2. DETEKCE POZVÁNKY Z EMAILU (Kritická část)
+      // Pokud URL obsahuje hash s tokenem (přišel z mailu), otevři rovnou okno.
+      if (window.location.hash.includes("invite_token")) {
+          netlifyIdentity.open("login");
       }
+
+      // 3. Přesměrování po přihlášení
+      netlifyIdentity.on('init', user => {
+        if (!user) {
+          netlifyIdentity.on('login', () => {
+            document.location.href = '/admin/';
+          });
+        }
+      });
     </script>
   </body>
 </html>
